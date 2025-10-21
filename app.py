@@ -234,7 +234,7 @@ def handle_requests():
 def home():
     return jsonify({
         "credits": "Jeet",
-        "insta": "_eco.del.alma_"
+        "insta": "_eco.del.alma_ "
     })
 if __name__ == '__main__':
     
