@@ -140,7 +140,10 @@ def make_request(encrypt, server_name, token):
         }
         response = requests.post(url, data=edata, headers=headers, verify=False)
         app.logger.warning(f"STATUS: {response.status_code}")
-app.logger.warning(f"RAW RESPONSE (first 200 chars): {response.text[:200]}")
+try:
+    app.logger.warning(f"FAKE RESPONSE (first 200 chars): {response.text[:200]}*")
+except Exception as e:
+    app.logger.error(f"Error printing response: {e}")
         hex_data = response.content.hex()
         binary = bytes.fromhex(hex_data)
         decode = decode_protobuf(binary)
